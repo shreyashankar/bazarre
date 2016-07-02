@@ -8,6 +8,12 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.view.*;
 
+//TODO: add a final method to Page instead of relying on page 100 to mark end
+//TODO: clean up code
+//TODO: figure out how to make layout of pages better
+//TODO: integrate database
+//TODO: jump from page 0 to 1 or 2 based on availability
+//TODO: put better text instead of dashboard
 
 public class BookNameActivity extends ActionBarActivity {
 
@@ -24,6 +30,8 @@ public class BookNameActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_name);
 
+        //Intents connect activities to each other -- pass in variable that represents
+        // whether we need book or get book
         Intent intent = getIntent();
         if(intent.getStringExtra("name").equals("need")) {
             need = true;
@@ -59,11 +67,13 @@ public class BookNameActivity extends ActionBarActivity {
         String pageText = currentPage.getText();
         textView.setText(pageText);
 
+        //only first page should have textbox
         if (page != 0) {
             editText.setVisibility(View.INVISIBLE);
         }
 
         choice1.setText(currentPage.getChoice1().getText());
+        //if there is no second choice on page we should not display it
         if (currentPage.getChoice2() != null) {
             choice2.setText(currentPage.getChoice2().getText());
         } else {
@@ -74,11 +84,11 @@ public class BookNameActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 int nextPage = currentPage.getChoice1().getNextPage();
-                if (pageNumber == 0) {
+                if (pageNumber == 0) { //deal with text box
                     String class_name = editText.getText().toString();
                     System.out.println(class_name);
                 }
-                if (nextPage != 100) {
+                if (nextPage != 100) { //page 100 does not exist; marks final
                     loadPage(nextPage);
                 } else {
                     finish();
