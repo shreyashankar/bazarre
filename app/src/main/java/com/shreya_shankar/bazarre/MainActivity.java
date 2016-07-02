@@ -30,6 +30,13 @@ public class MainActivity extends ActionBarActivity {
             }
         });
 
+        done_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bookEntry(false);
+            }
+        });
+
     }
 
     private void bookEntry(boolean need) {
@@ -37,6 +44,10 @@ public class MainActivity extends ActionBarActivity {
         if (need) {intent.putExtra("name", "need");}
         else {intent.putExtra("name", "done");}
         startActivity(intent);
+    }
+
+    protected void onResume() {
+        super.onResume();
     }
 
 
