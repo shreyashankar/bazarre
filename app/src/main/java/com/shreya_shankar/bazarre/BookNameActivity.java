@@ -8,6 +8,11 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.view.*;
 
+import com.firebase.client.Firebase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 //TODO: add a final method to Page instead of relying on page 100 to mark end
 //TODO: clean up code
 //TODO: figure out how to make layout of pages better
@@ -24,6 +29,7 @@ public class BookNameActivity extends ActionBarActivity {
     private Page currentPage;
     private TextView textView;
     private EditText editText;
+    private Firebase databaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,10 @@ public class BookNameActivity extends ActionBarActivity {
 
         //Intents connect activities to each other -- pass in variable that represents
         // whether we need book or get book
+        Firebase.setAndroidContext(this);
+        Firebase mRef = new Firebase("bazarre-1361.firebaseio.com");
+        databaseRef = mRef.child("requests");
+
         Intent intent = getIntent();
         if(intent.getStringExtra("name").equals("need")) {
             need = true;
@@ -104,6 +114,13 @@ public class BookNameActivity extends ActionBarActivity {
                     if (pageNumber == 0) {
                         String class_name = editText.getText().toString();
                         System.out.println(class_name);
+                        Map<String, String> userRequest = new HashMap<String, String>();
+                        if (need) {
+                            userRequest.put(class_name, "need");
+                        } else {
+                            userRequest.put(class_name, "done");
+                        }
+                        databaseRef.push().setValue(userRequest);
                     }
                     if (nextPage != 100) {
                         loadPage(nextPage);
@@ -113,8 +130,6 @@ public class BookNameActivity extends ActionBarActivity {
                 }
             });
         }
-
-
     }
 
 

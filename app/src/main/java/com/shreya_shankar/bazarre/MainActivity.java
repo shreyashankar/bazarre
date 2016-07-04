@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+
 
 public class MainActivity extends ActionBarActivity {
 
     private Button need_book;
     private Button done_book;
+    //private String mFirebaseURL = "bazarre-1361.firebaseio.com" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,6 @@ public class MainActivity extends ActionBarActivity {
                 bookEntry(true);
             }
         });
-
         done_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,8 +43,10 @@ public class MainActivity extends ActionBarActivity {
 
     private void bookEntry(boolean need) {
         Intent intent = new Intent(this, BookNameActivity.class);
+        // intent.putExtra("firebase", mFirebaseURL)
         if (need) {intent.putExtra("name", "need");}
-        else {intent.putExtra("name", "done");}
+        else {
+            intent.putExtra("name", "done");}
         startActivity(intent);
     }
 

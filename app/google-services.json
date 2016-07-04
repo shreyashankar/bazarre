@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "439458248676",
+    "firebase_url": "https://bazarre-1361.firebaseio.com",
+    "project_id": "bazarre-1361",
+    "storage_bucket": "bazarre-1361.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439458248676:android:a8ed44b11bf768d8",
+        "android_client_info": {
+          "package_name": "com.shreya_shankar.bazarre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439458248676-hr1bnptenps230eam9cmf2bhlfqksctn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-9KHedRLvjegxn2DGbQs06Ijc8NKwaX0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
