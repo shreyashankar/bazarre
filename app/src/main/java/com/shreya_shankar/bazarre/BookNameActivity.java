@@ -9,6 +9,8 @@ import android.widget.*;
 import android.view.*;
 
 import com.firebase.client.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,7 +31,8 @@ public class BookNameActivity extends ActionBarActivity {
     private Page currentPage;
     private TextView textView;
     private EditText editText;
-    private Firebase databaseRef;
+    private DatabaseReference databaseRef;
+    private FirebaseDatabase mRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +42,10 @@ public class BookNameActivity extends ActionBarActivity {
         //Intents connect activities to each other -- pass in variable that represents
         // whether we need book or get book
         Firebase.setAndroidContext(this);
-        Firebase mRef = new Firebase("bazarre-1361.firebaseio.com");
-        databaseRef = mRef.child("requests");
+        //Firebase mRef = new Firebase("bazarre-1361.firebaseio.com");
+        mRef = FirebaseDatabase.getInstance();
+        databaseRef = mRef.getReference("requests");
+        //databaseRef.child("temp").setValue("hi");
 
         Intent intent = getIntent();
         if(intent.getStringExtra("name").equals("need")) {
@@ -113,14 +118,20 @@ public class BookNameActivity extends ActionBarActivity {
                     int nextPage = currentPage.getChoice2().getNextPage();
                     if (pageNumber == 0) {
                         String class_name = editText.getText().toString();
-                        System.out.println(class_name);
-                        Map<String, String> userRequest = new HashMap<String, String>();
-                        if (need) {
-                            userRequest.put(class_name, "need");
-                        } else {
-                            userRequest.put(class_name, "done");
-                        }
-                        databaseRef.push().setValue(userRequest);
+                        Request r;
+                        if (need) {r = new Request(class_name, "need");}
+                        else {r = new Request(class_name, "done");}
+//                        Map<String, String> userRequest = new HashMap<String, String>();
+//                        if (need) {
+//                            userRequest.put(class_name, "need");
+//                        } else {
+//                            userRequest.put(class_name, "done");
+//                        }
+                        Firebase ref = new Firebase("bazarre-1361.firebaseio.com").push();
+                        ref.setValue(r);
+                        System.out.println("hiya " + class_name);
+                        //databaseRef.push().setValue(r);
+                        //mRef.child("requests").child("shreya").setValue(r);
                     }
                     if (nextPage != 100) {
                         loadPage(nextPage);
