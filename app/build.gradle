@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '24'
 
     packagingOptions {
         exclude 'META-INF/LICENSE'
@@ -30,4 +30,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.1.1'
     compile 'com.firebase:firebase-client-android:2.5.2+'
     compile 'com.google.firebase:firebase-database:9.2.0'
+    compile 'com.google.firebase:firebase-core:9.2.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

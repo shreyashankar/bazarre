@@ -10,8 +10,8 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Request {
 
-    public String class_name;
-    public String request_type;
+    public String name;
+    public long date;
 
     @JsonIgnore
     public String key;
@@ -20,9 +20,9 @@ public class Request {
         //default
     }
 
-    public Request(String class_name, String request_type) {
-        this.class_name = class_name;
-        this.request_type = request_type;
+    public Request(String name, long date) {
+        this.name = name;
+        this.date = date;
     }
 
 }

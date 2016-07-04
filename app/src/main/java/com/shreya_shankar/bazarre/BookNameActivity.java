@@ -8,11 +8,17 @@ import android.view.MenuItem;
 import android.widget.*;
 import android.view.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 import com.firebase.client.Firebase;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //TODO: add a final method to Page instead of relying on page 100 to mark end
@@ -31,8 +37,7 @@ public class BookNameActivity extends ActionBarActivity {
     private Page currentPage;
     private TextView textView;
     private EditText editText;
-    private DatabaseReference databaseRef;
-    private FirebaseDatabase mRef;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +46,8 @@ public class BookNameActivity extends ActionBarActivity {
 
         //Intents connect activities to each other -- pass in variable that represents
         // whether we need book or get book
-        Firebase.setAndroidContext(this);
-        //Firebase mRef = new Firebase("bazarre-1361.firebaseio.com");
-        mRef = FirebaseDatabase.getInstance();
-        databaseRef = mRef.getReference("requests");
-        //databaseRef.child("temp").setValue("hi");
+        //Firebase.setAndroidContext(this);
+        database = FirebaseDatabase.getInstance();
 
         Intent intent = getIntent();
         if(intent.getStringExtra("name").equals("need")) {
@@ -55,8 +57,8 @@ public class BookNameActivity extends ActionBarActivity {
         }
 
         if (need) {
-            pages = new Page[7];
-            pages[0] = new Page("Class name?", new Choice("OK", 1), new Choice("QUIT", 100), need);
+            pages = new Page[6];
+            pages[0] = new Page("What's your class name?", new Choice("OK", 1), new Choice("QUIT", 100), need);
             pages[1] = new Page("We have the book!", new Choice ("OK", 3), new Choice("QUIT", 100));
             pages[2] = new Page("We don't have the book yet. Do you want us to let you know when we get it?", new Choice ("OK", 4), new Choice("QUIT", 100));
             pages[3] = new Page("You can email _____ at _____ to get this book. Are you interested?", new Choice ("OK", 5), new Choice("QUIT", 100));
@@ -99,15 +101,7 @@ public class BookNameActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 int nextPage = currentPage.getChoice1().getNextPage();
-                if (pageNumber == 0) { //deal with text box
-                    String class_name = editText.getText().toString();
-                    System.out.println(class_name);
-                }
-                if (nextPage != 100) { //page 100 does not exist; marks final
-                    loadPage(nextPage);
-                } else {
-                    finish();
-                }
+                performChoice(nextPage);
             }
         });
 
@@ -116,30 +110,32 @@ public class BookNameActivity extends ActionBarActivity {
                 @Override
                 public void onClick(View v) {
                     int nextPage = currentPage.getChoice2().getNextPage();
-                    if (pageNumber == 0) {
-                        String class_name = editText.getText().toString();
-                        Request r;
-                        if (need) {r = new Request(class_name, "need");}
-                        else {r = new Request(class_name, "done");}
-//                        Map<String, String> userRequest = new HashMap<String, String>();
-//                        if (need) {
-//                            userRequest.put(class_name, "need");
-//                        } else {
-//                            userRequest.put(class_name, "done");
-//                        }
-                        Firebase ref = new Firebase("bazarre-1361.firebaseio.com").push();
-                        ref.setValue(r);
-                        System.out.println("hiya " + class_name);
-                        //databaseRef.push().setValue(r);
-                        //mRef.child("requests").child("shreya").setValue(r);
-                    }
-                    if (nextPage != 100) {
-                        loadPage(nextPage);
-                    } else {
-                        finish();
-                    }
+                    performChoice(nextPage);
                 }
             });
+        }
+    }
+
+    private void performChoice(int nextPage) {
+        if (pageNumber == 0) {
+            String class_name = editText.getText().toString();
+            DatabaseReference myRef;
+            Calendar cal = Calendar.getInstance();
+            //converts back into date: http://stackoverflow.com/questions/7953725/how-to-convert-milliseconds-to-date-format-in-android
+            long date = cal.getTimeInMillis();
+            if (need) {
+                myRef = database.getReference("need");
+            }
+            else {
+                myRef = database.getReference("done");
+            }
+            Request r = new Request("Reese", date);
+            myRef.child(class_name).push().setValue(r);
+        }
+        if (nextPage != 100) {
+            loadPage(nextPage);
+        } else {
+            finish();
         }
     }
 

@@ -2,116 +2,193 @@
 <items version="2" >
 
     <item
-        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.2/f19f10d6276aa0b380e2d05d2ab3272d693a5433/firebase-client-android-2.5.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.5.2-ee9feaaef2f63394f80578b81cd7796d8a5019b6.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2-cd9afb318b24b68842e643e180c9dd9b6a053c66.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.0-cd1d4faadb521091e07e0a250ca435d065830cef.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.2/91731b8f5868a3e8a8a773f29b8d06b5c358f5bb/firebase-client-jvm-2.5.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.5.2-843823814dd698c6f1006cb74ad44965ff0cf791.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-80c7deae0a1484cb5d5ca1de73867671c4a36455.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-7b7d59d9efb30ee5cb28c70898176ae75a6a953c.jar" />
-    </item>
-    <item
+        is-multidex="true"
         jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
         sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2-71e0974b85d8aceba53e85fa359f95aafad8b5be.jar" />
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-annotations-2.2.2_71e0974b85d8aceba53e85fa359f95aafad8b5be/classes.dex" />
     </item>
     <item
-        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/tubesock-0.0.12-726daba6d5d0f0d8f5accde3218909cb966bca8d.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-fa66f5bd363c0724cbb372ca3af58873e22e1d58.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.0-616f928bc3b1057bfa333be06c9f007b805e05e6.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-4c0871287fcf8cf789001d04bea8ce27d07cf0b7.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-5c2401a8f3aa0fe03b22cefa54f66b4f5fb06f95.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="33203b081101ca6242a4cd746aafe5fc2dd98a34">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-20992801789d015759424568e88f4508b0603fee.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d7572433ba21aa9e4624c819fa738b2748b82d05">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-46fca14d345b3ed34c05900cdc6140726cc58e07.jar" />
-    </item>
-    <item
-        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2-7de2ebf17b39fc583e0eb157cf2be6dfc6f5f0f3.jar" />
-    </item>
-    <item
+        is-multidex="true"
         jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
         sha1="593fbaec1c3e100480a2bd72457b64b7dde6ac2d">
-        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/pre-dexed/debug/classes-20628f1c1f81a0154fd4625102953ec32829cf3f.jar" />
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.2.0_20628f1c1f81a0154fd4625102953ec32829cf3f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-23.0.0_80c7deae0a1484cb5d5ca1de73867671c4a36455/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.5.2/f19f10d6276aa0b380e2d05d2ab3272d693a5433/firebase-client-android-2.5.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-android-2.5.2_ee9feaaef2f63394f80578b81cd7796d8a5019b6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.1.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="a3ff3c506644c820eb2bdf06e8339f72be578551">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.1.1_4c0871287fcf8cf789001d04bea8ce27d07cf0b7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="dd7676ac12aa6653718b7ea33d93ce9d6915d526">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.2.0_fa66f5bd363c0724cbb372ca3af58873e22e1d58/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.0/jars/libs/internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.0.0_cd1d4faadb521091e07e0a250ca435d065830cef/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="c351f0a614e4140fcf075aaff586e2ceb568ee65">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_f5338c222583e5fd28e4b6531ea03a5902dbea02/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="dc4c18602ecffb3e69cda6cdc51ba4feac0f97d7">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.2.0_5d2be64e8cd80dedfcc1eb7402c0b20d4ba51646/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="fb15fd9774b5c51dcb39d8e6fa1b6f06bcd1cd34">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.2.0_f5fbca08753bc84748711051a15549a67d7824ee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-databind-2.2.2_7de2ebf17b39fc583e0eb157cf2be6dfc6f5f0f3/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="d7572433ba21aa9e4624c819fa738b2748b82d05">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-9.2.0_46fca14d345b3ed34c05900cdc6140726cc58e07/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.5.2/91731b8f5868a3e8a8a773f29b8d06b5c358f5bb/firebase-client-jvm-2.5.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/firebase-client-jvm-2.5.2_843823814dd698c6f1006cb74ad44965ff0cf791/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="30489a97b06cc3945bdbcc1770089af9e3b3b64d">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.2.0_5c2401a8f3aa0fe03b22cefa54f66b4f5fb06f95/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="363f626ad5686283250cdb6073ae1bba5cb07a87">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.2.0_7b7d59d9efb30ee5cb28c70898176ae75a6a953c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="4838df6db988160b107e954e02a745370df543b6">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.2.0_eba16ad9511ecf12a39bc66f6000f0c36a99fffe/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.12/6ec0bbd3e161a73ed672284b587fd32309a86d7a/tubesock-0.0.12.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/tubesock-0.0.12_726daba6d5d0f0d8f5accde3218909cb966bca8d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.0/support-annotations-23.0.0.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.0.0_616f928bc3b1057bfa333be06c9f007b805e05e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="c8260c657916eb6c694eb84cc06b57e3e3cb4017">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_289adc49aa21c8e20732f8208c89694f7ff29c88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/exploded-aar/com.google.firebase/firebase-database-connection/9.2.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="33203b081101ca6242a4cd746aafe5fc2dd98a34">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-database-connection-9.2.0_20992801789d015759424568e88f4508b0603fee/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/shreyashankar/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="true"
+        optimize="false"
+        revision="24.0.0"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/Users/shreyashankar/AndroidStudioProjects/Bazarre/app/build/intermediates/transforms/dex/debug/folders/1000/10/jackson-core-2.2.2_cd9afb318b24b68842e643e180c9dd9b6a053c66/classes.dex" />
     </item>
 
 </items>
