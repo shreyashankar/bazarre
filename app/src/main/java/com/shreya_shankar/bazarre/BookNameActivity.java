@@ -1,8 +1,10 @@
 package com.shreya_shankar.bazarre;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.*;
@@ -13,8 +15,14 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.firebase.client.Firebase;
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,7 +45,15 @@ public class BookNameActivity extends ActionBarActivity {
     private Page currentPage;
     private TextView textView;
     private EditText editText;
+    private final List<Request> matchedRequests = new ArrayList<Request>();
     FirebaseDatabase database;
+    private int nextPage;
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +66,7 @@ public class BookNameActivity extends ActionBarActivity {
         database = FirebaseDatabase.getInstance();
 
         Intent intent = getIntent();
-        if(intent.getStringExtra("name").equals("need")) {
+        if (intent.getStringExtra("name").equals("need")) {
             need = true;
         } else {
             need = false;
@@ -59,15 +75,15 @@ public class BookNameActivity extends ActionBarActivity {
         if (need) {
             pages = new Page[6];
             pages[0] = new Page("What's your class name?", new Choice("OK", 1), new Choice("QUIT", 100), need);
-            pages[1] = new Page("We have the book!", new Choice ("OK", 3), new Choice("QUIT", 100));
-            pages[2] = new Page("We don't have the book yet. Do you want us to let you know when we get it?", new Choice ("OK", 4), new Choice("QUIT", 100));
-            pages[3] = new Page("You can email _____ at _____ to get this book. Are you interested?", new Choice ("OK", 5), new Choice("QUIT", 100));
-            pages[4] = new Page("Thanks! We'll let you know when it's available.", new Choice ("OK", 100));
-            pages[5] = new Page("Thanks! You have 72 hours to get your book.", new Choice ("OK", 100));
+            pages[1] = new Page("We have the book!", new Choice("OK", 3), new Choice("QUIT", 100));
+            pages[2] = new Page("We don't have the book yet. Do you want us to let you know when we get it?", new Choice("OK", 4), new Choice("QUIT", 100));
+            pages[3] = new Page("You can email _____ at _____ to get this book. Are you interested?", new Choice("OK", 5), new Choice("QUIT", 100));
+            pages[4] = new Page("Thanks! We'll let you know when it's available.", new Choice("OK", 100));
+            pages[5] = new Page("Thanks! You have 72 hours to get your book.", new Choice("OK", 100));
         } else {
             pages = new Page[2];
             pages[0] = new Page("Class name?", new Choice("OK", 1), new Choice("QUIT", 100), need);
-            pages[1] = new Page("Thanks! We'll let you know if someone needs your book.", new Choice ("OK", 100));
+            pages[1] = new Page("Thanks! We'll let you know if someone needs your book.", new Choice("OK", 100));
         }
 
         choice1 = (Button) findViewById(R.id.ok_button);
@@ -75,6 +91,9 @@ public class BookNameActivity extends ActionBarActivity {
         textView = (TextView) findViewById(R.id.text_prompt);
         editText = (EditText) findViewById(R.id.class_name);
         loadPage(0);
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void loadPage(int page) {
@@ -100,7 +119,7 @@ public class BookNameActivity extends ActionBarActivity {
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int nextPage = currentPage.getChoice1().getNextPage();
+                nextPage = currentPage.getChoice1().getNextPage();
                 performChoice(nextPage);
             }
         });
@@ -109,7 +128,7 @@ public class BookNameActivity extends ActionBarActivity {
             choice2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int nextPage = currentPage.getChoice2().getNextPage();
+                    nextPage = currentPage.getChoice2().getNextPage();
                     performChoice(nextPage);
                 }
             });
@@ -117,27 +136,71 @@ public class BookNameActivity extends ActionBarActivity {
     }
 
     private void performChoice(int nextPage) {
+        String class_name = "";
+        DatabaseReference myRef;
+        DatabaseReference checkRef = null;
         if (pageNumber == 0) {
-            String class_name = editText.getText().toString();
-            DatabaseReference myRef;
+            class_name = editText.getText().toString();
             Calendar cal = Calendar.getInstance();
             //converts back into date: http://stackoverflow.com/questions/7953725/how-to-convert-milliseconds-to-date-format-in-android
             long date = cal.getTimeInMillis();
             if (need) {
                 myRef = database.getReference("need");
-            }
-            else {
+                checkRef = database.getReference("done");
+            } else {
                 myRef = database.getReference("done");
+                checkRef = database.getReference("need");
             }
             Request r = new Request("Reese", date);
             myRef.child(class_name).push().setValue(r);
+            System.out.println("Im here 1");
         }
-        if (nextPage != 100) {
-            loadPage(nextPage);
+        // check if new entry matches any entries in want
+        getMatchedUsers(checkRef, class_name);
+
+
+    }
+
+    private void getMatchedUsers(DatabaseReference checkRef, String class_name) {
+        final String class_query = class_name;
+        ValueEventListener v = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot ds) {
+                for (DataSnapshot currChild : ds.child(class_query).getChildren()) {
+                    System.out.println("adding element");
+                    matchedRequests.add(currChild.getValue(Request.class));
+                }
+                evaluateNotifications();
+                if (nextPage != 100) {
+                    loadPage(nextPage);
+                } else {
+                    finish();
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
+            }
+        };
+        checkRef.addListenerForSingleValueEvent(v);
+        checkRef.removeEventListener(v);
+    }
+
+    private void evaluateNotifications() {
+        if (!matchedRequests.isEmpty()) {
+            for (Request matchedRequest : matchedRequests) {
+                pushNotification(matchedRequest);
+            }
         } else {
-            finish();
+            System.out.println("No matches were found.");
+            nextPage = 2;
         }
     }
 
-
+    // TODO: find out how to not use public List matchedRequest
+    // TODO: Implement version of this function that actually pushes real notification.
+    private void pushNotification(Request matchedRequest) {
+        String userID = matchedRequest.getName();
+        System.out.println("We're sending " + userID + " a message!");
+    }
 }

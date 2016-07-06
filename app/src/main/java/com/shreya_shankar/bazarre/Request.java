@@ -25,4 +25,7 @@ public class Request {
         this.date = date;
     }
 
+    public String getName() { return name; }
+    public long getDate() { return date; }
+
 }
