@@ -29,12 +29,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-//TODO: add a final method to Page instead of relying on page 100 to mark end
+//TODO: add a final method to Page instead of relying on page 100 to mark end -- meh
 //TODO: clean up code
-//TODO: figure out how to make layout of pages better
-//TODO: integrate database
-//TODO: jump from page 0 to 1 or 2 based on availability
-//TODO: put better text instead of dashboard
+//TODO: figure out how to make layout of pages better -- later
+//TODO: integrate database -- mostly done
+//TODO: put better text instead of dashboard -- later
+//TODO: get correct user based on date/time -- next
+//TODO: implement authentication for firebase
+//TODO: implement authentication for user
+//TODO: delete database entry if someone presses quit -- next
+//TODO: let user go back
 
 public class BookNameActivity extends ActionBarActivity {
 
@@ -74,6 +78,7 @@ public class BookNameActivity extends ActionBarActivity {
 
         if (need) {
             pages = new Page[6];
+            //page 100 marks transition to finish()
             pages[0] = new Page("What's your class name?", new Choice("OK", 1), new Choice("QUIT", 100), need);
             pages[1] = new Page("We have the book!", new Choice("OK", 3), new Choice("QUIT", 100));
             pages[2] = new Page("We don't have the book yet. Do you want us to let you know when we get it?", new Choice("OK", 4), new Choice("QUIT", 100));
@@ -97,6 +102,10 @@ public class BookNameActivity extends ActionBarActivity {
     }
 
     private void loadPage(int page) {
+        if (page == 100) {
+            finish();
+            return;
+        }
         currentPage = pages[page];
         pageNumber = page;
 
@@ -153,10 +162,17 @@ public class BookNameActivity extends ActionBarActivity {
             }
             Request r = new Request("Reese", date);
             myRef.child(class_name).push().setValue(r);
-            System.out.println("Im here 1");
+            // check if new entry matches any entries in want
+            getMatchedUsers(checkRef, class_name);
         }
-        // check if new entry matches any entries in want
-        getMatchedUsers(checkRef, class_name);
+//        // check if new entry matches any entries in want
+//        getMatchedUsers(checkRef, class_name);
+        else if (pageNumber != 100) {
+            loadPage(nextPage);
+        }
+        else {
+            finish();
+        }
 
 
     }
@@ -167,7 +183,6 @@ public class BookNameActivity extends ActionBarActivity {
             @Override
             public void onDataChange(DataSnapshot ds) {
                 for (DataSnapshot currChild : ds.child(class_query).getChildren()) {
-                    System.out.println("adding element");
                     matchedRequests.add(currChild.getValue(Request.class));
                 }
                 evaluateNotifications();
@@ -182,8 +197,10 @@ public class BookNameActivity extends ActionBarActivity {
                 //Log.w(TAG, "getUser:onCancelled", databaseError.toException());
             }
         };
-        checkRef.addListenerForSingleValueEvent(v);
-        checkRef.removeEventListener(v);
+        if (nextPage != 100) {
+            checkRef.addListenerForSingleValueEvent(v);
+            checkRef.removeEventListener(v);
+        }
     }
 
     private void evaluateNotifications() {
@@ -191,6 +208,7 @@ public class BookNameActivity extends ActionBarActivity {
             for (Request matchedRequest : matchedRequests) {
                 pushNotification(matchedRequest);
             }
+            System.out.println("next page???? " + nextPage);
         } else {
             System.out.println("No matches were found.");
             nextPage = 2;
@@ -202,5 +220,6 @@ public class BookNameActivity extends ActionBarActivity {
     private void pushNotification(Request matchedRequest) {
         String userID = matchedRequest.getName();
         System.out.println("We're sending " + userID + " a message!");
+        if (need) {pages[3].setText("You can email " + userID + " to get this book. Are you interested?");}
     }
 }
