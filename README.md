@@ -5,4 +5,5 @@
 * TODO: figure out how to make layout of pages better  
 * TODO: integrate database  
 * TODO: jump from page 0 to 1 or 2 based on availability  
-* TODO: put better text instead of dashboard  
+* TODO: put better text instead of dashboard
+* TODO: everything  
